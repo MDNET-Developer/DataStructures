@@ -6,7 +6,7 @@ namespace LikedList_BagliList
 {
     internal class Program
     {
-        public  class Node
+        public class Node
         {
             public int _data;
             public Node next;
@@ -27,6 +27,8 @@ namespace LikedList_BagliList
 
             public void Print()
             {
+                Console.WriteLine();
+               
                 Node temp = head;
                 if (head == null)
                 {
@@ -36,22 +38,102 @@ namespace LikedList_BagliList
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write( "Start -> " );
-                   
-                    while (temp.next!=null)
+                    Console.WriteLine("-----------------------------------------------------------");
+                    Console.Write("Start -> ");
+
+                    while (temp.next != null)
                     {
                         Console.Write(temp._data + " -> ");
                         temp = temp.next;
                     }
-                    Console.Write(temp._data +  " -> Finish");
+                    Console.Write(temp._data + " -> Finish");
                     Console.WriteLine();
                 }
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.White;
+
+            }
+            public void deleteWithIndexNumber(int index)
+            {
+                int i = 0;
+                if (head==null)
+                {
+                    Console.WriteLine("Empty list");
+                }
+                else if (head.next==null && index == 0)
+                {
+                    head = null;
+                    Console.WriteLine("Last element deleted");
+                }
+
+                else
+                {
+                    Node temp = head;
+                    Node temp2 = temp;
+                    while (temp.next != null)
+                    {
+                        if (i == index)
+                        {
+                            temp2.next = temp.next;
+                            i++;
+                            break;
+                        }
+                        temp2 = temp;
+                        temp = temp.next;
+                        i++;
+                    }
+
+
+                }
+                if (i == index)
+                {
+                    deleteLast();
+                }
+
+            }
+
+            public void addWithIndexNumber(int index, int data)
+            {
+                int i = 0;
+                Node element = new(data);
+                if (index==0)
+                {
+                    addBegining(data);
+                }
+               
+                else
+                {
+                    Node temp = head;
+                    Node temp2 = temp;
+                    while (temp.next != null)
+                    {
+                        if (i==index)
+                        {
+                            temp2.next = element;
+                            element.next = temp;
+                            i++;
+                        }
+                        temp2 = temp;
+                        temp = temp.next;
+                        i++;
+                    }
+
+
+                }
+                if (i==index)
+                {
+                    addLast(data);
+                }
+
+                
+                
             }
             public void deleteBegining()
             {
                 if (head == null)
                 {
-                    
+
                     Console.WriteLine($"Can not delete empty list");
                 }
                 else
@@ -80,15 +162,15 @@ namespace LikedList_BagliList
             public void addLast(int data)
             {
                 Node element = new(data);
-                if (head==null)
+                if (head == null)
                 {
                     head = element;
                     Console.WriteLine($"List yaradildi ve ilk duyum elave olundu - '{element._data}'");
                 }
                 else
                 {
-                    Node temp=head;
-                    while (temp.next!=null)
+                    Node temp = head;
+                    while (temp.next != null)
                     {
                         temp = temp.next;
                     }
@@ -109,7 +191,7 @@ namespace LikedList_BagliList
                     // 1 -> 2 ->  3 ->  4 ->  5 ->  6 ->  7 ->  null
                     Node temp = head;
                     Node temp2 = temp;
-                    while (temp.next!=null)
+                    while (temp.next != null)
                     {
                         temp2 = temp;
                         temp = temp.next;
@@ -130,6 +212,7 @@ namespace LikedList_BagliList
             NodeList nodeList = new();
 
             int eded;
+            int indexNum;
             int secim = Menu();
             while (secim != 0)
             {
@@ -149,8 +232,19 @@ namespace LikedList_BagliList
                     case 4:
                         nodeList.deleteLast();
                         break;
+                    case 5:
+                        Console.Write("Index nomresi: "); indexNum = int.Parse(Console.ReadLine());
+                        Console.Write("Eded daxil et:"); eded = int.Parse(Console.ReadLine());
+                        nodeList.addLast(eded);
+                        nodeList.addWithIndexNumber(indexNum,eded);
+                        break;
+                        case 6:
+                        Console.Write("Index nomresi: "); indexNum = int.Parse(Console.ReadLine());
+                        nodeList.deleteWithIndexNumber(indexNum);
+                        break;
                     case 0:
                         break;
+                        
                 }
                 nodeList.Print();
                 secim = Menu();
@@ -164,13 +258,15 @@ namespace LikedList_BagliList
                 Console.WriteLine("2 - sona elave et");
                 Console.WriteLine("3 - basdan sil");
                 Console.WriteLine("4 - soldan sil");
+                Console.WriteLine("5 - ara hisseye element elave et");
+                Console.WriteLine("6 - ara hisseden element sil");
                 Console.WriteLine("0 - Proqrami bagla");
                 Console.Write("Secim: ");
                 secim = int.Parse(Console.ReadLine());
                 return secim;
             }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("--- Application ended ---");
+            Console.WriteLine("--- Application ended ---");
         }
-}
+    }
 }
