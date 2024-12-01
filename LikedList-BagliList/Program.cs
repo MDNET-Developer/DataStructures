@@ -43,7 +43,7 @@ namespace LikedList_BagliList
                         Console.Write(temp._data + " -> ");
                         temp = temp.next;
                     }
-                    Console.Write(temp._data + " -> Finish");
+                    Console.Write(temp._data +  " -> Finish");
                     Console.WriteLine();
                 }
             }
@@ -106,7 +106,7 @@ namespace LikedList_BagliList
                 }
                 else
                 {
-                    // 1 2 3 4 5 6 7 null
+                    // 1 -> 2 ->  3 ->  4 ->  5 ->  6 ->  7 ->  null
                     Node temp = head;
                     Node temp2 = temp;
                     while (temp.next!=null)
