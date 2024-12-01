@@ -267,6 +267,10 @@ namespace LikedList_BagliList
             }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("--- Application ended ---");
+            var key = Console.ReadKey(intercept: true);
+            if (key.Key == ConsoleKey.Escape)
+                Environment.Exit(0);
+           
         }
     }
 }
