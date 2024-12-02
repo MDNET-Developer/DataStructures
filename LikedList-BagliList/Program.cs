@@ -49,7 +49,7 @@ namespace LikedList_BagliList
                     Console.Write(temp._data + " -> Finish");
                     Console.WriteLine();
                 }
-                Console.WriteLine("-----------------------------------------------------------");
+                     Console.WriteLine("-----------------------------------------------------------");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
 
