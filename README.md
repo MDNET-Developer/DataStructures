@@ -57,25 +57,24 @@ This project demonstrates how to implement a **singly linked list** in C#. It pr
 - Choose `5` to insert a number at a specific index.
 - Choose `6` to remove a number at a specific index.
 
+### Requirements### 
+- Choose .NET Framework or .NET Core
+- Choose Visual Studio or a compatible IDE for running C# applications.
+  
+### How to Run### 
+Clone the repository:
+git clone https://github.com/MuradAliyevDeveloper/<repository-name>.git
+Open the project in Visual Studio.
+Build and run the application.
+
+Author
+Developed by Murad Aliyev - Software Developer
+
 ### Output Example
 ```plaintext
 -----------------------------------------------------------
 Start -> 10 -> 20 -> 30 -> Finish
 -----------------------------------------------------------
-Requirements
-.NET Framework or .NET Core
-Visual Studio or a compatible IDE for running C# applications.
-How to Run
-Clone the repository:
-bash
-git clone https://github.com/MuradAliyevDeveloper/<repository-name>.git
-Open the project in Visual Studio.
-Build and run the application.
-Interact with the menu to perform linked list operations.
-License
-This project is licensed under the MIT License. Feel free to use, modify, and distribute as needed.
 
-Author
-Developed by Murad Aliyev - Software Developer
 
 
