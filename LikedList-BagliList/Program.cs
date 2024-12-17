@@ -92,7 +92,6 @@ namespace LikedList_BagliList
                 }
 
             }
-
             public void addWithIndexNumber(int index, int data)
             {
                 int i = 0;
@@ -178,7 +177,6 @@ namespace LikedList_BagliList
                     Console.WriteLine($"Sona element elave olundu - '{element._data}'");
                 }
             }
-
             public void deleteLast()
             {
                 if (head == null)
@@ -189,6 +187,24 @@ namespace LikedList_BagliList
                 else
                 {
                     // 1 -> 2 ->  3 ->  4 ->  5 ->  6 ->  7 ->  null
+                    /*
+               ------------------------------------------------------------------------
+                       head
+                      [Düyün1] -> [Düyün2] -> [Düyün3] -> null
+                        temp
+                        temp2
+               ------------------------------------------------------------------------
+                       head
+                      [Düyün1] -> [Düyün2] -> [Düyün3] -> null
+                        temp2        temp
+                        
+               ------------------------------------------------------------------------
+                     head
+                    [Düyün1] -> [Düyün2] -> [Düyün3] -> null
+                                  temp2       temp
+               ------------------------------------------------------------------------
+                   */
+
                     Node temp = head;
                     Node temp2 = temp;
                     while (temp.next != null)
